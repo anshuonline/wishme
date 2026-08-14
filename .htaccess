@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /wishme15august/
+
+# If the request is for a real directory or file, serve it
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Otherwise, if it starts with 'wish_', rewrite to share.php
+RewriteRule ^(wish_[a-zA-Z0-9]+)$ share.php?id=$1 [L,QSA]
