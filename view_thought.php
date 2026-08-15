@@ -64,17 +64,25 @@ $userImagePath = 'uploads/' . htmlspecialchars($thought['user_image']);
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title><?= $userName ?> sent you a magical surprise!</title>
+    <title><?= $userName ?> sent you a surprise!</title>
     
-    <meta property="og:title" content="<?= $userName ?> wishes you Happy Independence Day!" />
-    <meta property="og:description" content="Click here to see the magic surprise from <?= $userName ?>" />
-    <meta property="og:image" content="<?= "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) . "/assets/images/og-share.jpg" ?>" />
+    <?php
+    $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['REQUEST_URI']), '/');
+    $ogImageUrl = $baseUrl . '/' . $userImagePath;
+    ?>
+    <meta property="og:title" content="<?= $userName ?> sent you a surprise!" />
+    <meta property="og:description" content="Open to see this magical surprise message from <?= $userName ?>" />
+    <meta property="og:image" content="<?= $ogImageUrl ?>" />
     <meta property="og:url" content="<?= $pageUrl ?>" />
     <meta property="og:type" content="website" />
+    
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?= $userName ?> sent you a surprise!" />
+    <meta name="twitter:description" content="Open to see this magical surprise message from <?= $userName ?>" />
+    <meta name="twitter:image" content="<?= $ogImageUrl ?>" />
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="<?= $userName ?> has sent you happy independence day wishes with names and a magical surprise. Open to see this viral 15th August message!">
+    <meta name="description" content="<?= $userName ?> has sent you a magical surprise. Open to see this viral message!">
     <meta name="keywords" content="happy independence day, happy independence day wishes, happy independence day wishes with names, 15 august 2026, magical independence day surprise, viral message">
     <meta name="author" content="wishme15august.space">
 
